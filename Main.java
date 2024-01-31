@@ -6,6 +6,5 @@ public class Main {
         Astana.addDepositor("Aidan", 100);
         Astana.removeContribution("Aidan", 5);
         Astana.findDepositor("Aidan");
-        asdadsad
     }
 }
