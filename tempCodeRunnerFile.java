@@ -1,1 +1,1 @@
-        Astana.removeContribution("Aidan", 5);
+import java.util.Scanner;

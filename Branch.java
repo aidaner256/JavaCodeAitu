@@ -40,8 +40,8 @@ public class Branch extends Bank {
 
     public void printUsers() {
         System.out.println("Users of branch " + branchName + ":");
-        for (String user : users) {
-            System.out.println(user);
+        for (int i = 0; i < users.size(); i++) {
+            System.out.println(users.get(i));
         }
     }
 
