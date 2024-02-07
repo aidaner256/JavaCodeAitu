@@ -1,3 +1,5 @@
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
         Bank Kaspi = new Bank("Kaspi");
@@ -6,6 +8,5 @@ public class Main {
         Astana.addDepositor("Aidan", 100);
         Astana.removeContribution("Aidan", 5);
         Astana.findDepositor("Aidan");
-        dklfjsdlkfjskld
-        fewjkfewjfiwejfjewiijs
+    }
 }
