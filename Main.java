@@ -9,7 +9,5 @@ public class Main {
         Astana.removeContribution("Aidan", 5);
         Astana.findDepositor("Aidan");
         Astana.countDeposits();
-
-            wasdasd
     }
 }
