@@ -7,27 +7,38 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CreateWindow {
+    // Declare outputArea as a static variable
+    private static JTextArea outputArea;
+
     public static void main(String[] args) {
         JFrame frame = new JFrame("Пример JFrame");
 
-        // Панель, на которую будут добавлены компоненты
         JPanel panel = new JPanel();
 
-        JTextArea outputArea = new JTextArea(10, 30);
+        outputArea = new JTextArea(30, 50);  
         JScrollPane scrollPane = new JScrollPane(outputArea);
 
-        // Создание кнопок
         JButton button1 = new JButton("Кнопка 1");
         JButton button2 = new JButton("Кнопка 2");
         JButton button3 = new JButton("Кнопка 3");
         JButton button4 = new JButton("Кнопка 4");
 
-        // Добавление обработчика событий для каждой кнопки
+        boolean isFirstClick = true;
+
+        // Добавление обработчика событий для кнопки
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Код для кнопки 1
-                outputArea.append("Нажата кнопка 1\n");
+                if (isFirstClick) {
+                    outputArea.setText("");  // Очистка текстового поля при первом клике
+                    outputArea.append("1. Check Balance\n");
+                    outputArea.append("2. Withdraw Funds\n");
+                    outputArea.append("3. Deposit Funds\n");
+                    outputArea.append("4. Exit\n");
+                    isFirstClick = false;
+                } else {
+                    outputArea.append("Нажата кнопка 1\n");
+                }
             }
         });
 
@@ -61,11 +72,17 @@ public class CreateWindow {
         panel.add(scrollPane);
         frame.getContentPane().add(panel);
         frame.setSize(1080, 720);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setVisible(true);
+
+        StartMsg();
+    }
+
+    public static void StartMsg() {
         outputArea.append("1. Check Balance\n");
         outputArea.append("2. Withdraw Funds\n");
         outputArea.append("3. Deposit Funds\n");
         outputArea.append("4. Exit\n");
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setVisible(true);
     }
+    
 }
