@@ -7,11 +7,10 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CreateWindow {
-    // Declare outputArea as a static variable
     private static JTextArea outputArea;
 
     public static void main(String[] args) {
-        JFrame frame = new JFrame("Пример JFrame");
+        JFrame frame = new JFrame("BANK");
 
         JPanel panel = new JPanel();
 
@@ -22,10 +21,8 @@ public class CreateWindow {
         JButton button2 = new JButton("Кнопка 2");
         JButton button3 = new JButton("Кнопка 3");
         JButton button4 = new JButton("Кнопка 4");
-
-        boolean isFirstClick = true;
-
-        // Добавление обработчика событий для кнопки
+        
+        boolean isFirstClick = false;
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -35,7 +32,6 @@ public class CreateWindow {
                     outputArea.append("2. Withdraw Funds\n");
                     outputArea.append("3. Deposit Funds\n");
                     outputArea.append("4. Exit\n");
-                    isFirstClick = false;
                 } else {
                     outputArea.append("Нажата кнопка 1\n");
                 }
