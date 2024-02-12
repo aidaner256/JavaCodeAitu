@@ -1,63 +1,61 @@
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTextArea;
+import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class CreateWindow {
     private static JTextArea outputArea;
+    private static JTextField searchField;
 
     public static void main(String[] args) {
         JFrame frame = new JFrame("BANK");
 
         JPanel panel = new JPanel();
 
-        outputArea = new JTextArea(30, 50);  
+        outputArea = new JTextArea(30, 50);
+        outputArea.setEditable(false);  // Prevent user editing
+
         JScrollPane scrollPane = new JScrollPane(outputArea);
 
-        JButton button1 = new JButton("Кнопка 1");
-        JButton button2 = new JButton("Кнопка 2");
-        JButton button3 = new JButton("Кнопка 3");
-        JButton button4 = new JButton("Кнопка 4");
-        
-        boolean isFirstClick = false;
+        JButton button1 = new JButton("button1");  // More descriptive labels
+        JButton button2 = new JButton("button2");
+        JButton button3 = new JButton("button3");
+        JButton button4 = new JButton("Exit");
+        searchField = new JTextField(20);  // Initialize here
+        JButton searchButton = new JButton("Search");
+
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                if (isFirstClick) {
-                    outputArea.setText("");  // Очистка текстового поля при первом клике
-                    outputArea.append("1. Check Balance\n");
-                    outputArea.append("2. Withdraw Funds\n");
-                    outputArea.append("3. Deposit Funds\n");
-                    outputArea.append("4. Exit\n");
-                } else {
-                    outputArea.append("Нажата кнопка 1\n");
-                }
+                outputArea.append("Balance checked\n");  // Replace with actual balance logic
             }
         });
 
         button2.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                outputArea.append("Нажата кнопка 2\n");
+                outputArea.append("Funds withdrawn\n");  // Replace with withdrawal logic
             }
         });
 
         button3.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                // Код для кнопки 3
-                outputArea.append("Нажата кнопка 3\n");
+                outputArea.append("Funds deposited\n");  // Replace with deposit logic
             }
         });
 
         button4.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                outputArea.append("Exiting...");
-                return;
+                System.exit(0);  // Proper exit method
+            }
+        });
+
+        searchButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String searchText = searchField.getText();
+                // Perform the search logic here using the searchText
             }
         });
 
@@ -65,6 +63,8 @@ public class CreateWindow {
         panel.add(button2);
         panel.add(button3);
         panel.add(button4);
+        panel.add(searchField);
+        panel.add(searchButton);
         panel.add(scrollPane);
         frame.getContentPane().add(panel);
         frame.setSize(1080, 720);
@@ -75,10 +75,12 @@ public class CreateWindow {
     }
 
     public static void StartMsg() {
+        outputArea.append("Welcome to the BANK application!\n");
+        outputArea.append("Enter your name pls\n");
+        outputArea.append("Available options:\n");
         outputArea.append("1. Check Balance\n");
         outputArea.append("2. Withdraw Funds\n");
         outputArea.append("3. Deposit Funds\n");
         outputArea.append("4. Exit\n");
     }
-    
 }
