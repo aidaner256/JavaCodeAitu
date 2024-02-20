@@ -21,11 +21,12 @@ public class CreateWindow {
         JButton button3 = new JButton("button3");
         JButton button4 = new JButton("Exit");
         searchField = new JTextField(20);  // Initialize here
-        JButton searchButton = new JButton("Search");
+        JButton searchButton = new JButton("Log in");
 
         button1.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+
                 outputArea.append("Balance checked\n");  // Replace with actual balance logic
             }
         });
@@ -55,7 +56,8 @@ public class CreateWindow {
             @Override
             public void actionPerformed(ActionEvent e) {
                 String searchText = searchField.getText();
-                // Perform the search logic here using the searchText
+                outputArea.append(searchText);
+                // search logic here using the searchText
             }
         });
 
@@ -84,3 +86,6 @@ public class CreateWindow {
         outputArea.append("4. Exit\n");
     }
 }
+
+
+
